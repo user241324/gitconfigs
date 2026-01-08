@@ -211,7 +211,3 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-
-		inactive_workspace	#AB5B8C	#AB5B8C	#FFFFFF
-	}
-}
