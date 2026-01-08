@@ -1,8 +1,8 @@
+$USER/.config/gtk-3.0
+
+$USER/.config/gtk-4.0
+
 $USER/.config/hypr
-
-$USER/.config/gtk-3.0
-
-$USER/.config/gtk-3.0
 
 $USER/.config/i3
 
