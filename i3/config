@@ -5,14 +5,9 @@
 ### MONITORS ###
 ################
 
-# Check connected displays with:
-# xrandr -q
-
-# Desktop
-# exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --rate 143.99
-
-# Laptop
-# exec --no-startup-id xrandr --output eDP-1 --mode 1920x1080 --rate 60.00
+# Only use if xrandr is not being called by the display manager.
+# exec --no-startup-id xrandr -s 2560x1440 -r 143.99
+# exec --no-startup-id xrandr -s 1920x1080 -r 60.00
 
 ###################
 ### MY PROGRAMS ###
