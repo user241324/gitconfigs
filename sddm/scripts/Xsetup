@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Xsetup - run as root before the login dialog appears
+
+# Set screen resolution and refresh rate
+xrandr -s 1920x1080 -r 60.00
