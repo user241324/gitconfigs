@@ -170,4 +170,4 @@ configuration {
   }
 }
 
-@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+@theme "$HOME/.config/rofi/Arc-Dark.rasi"
