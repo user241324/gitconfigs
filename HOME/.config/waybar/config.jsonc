@@ -35,7 +35,7 @@
 		"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
 		"unknown-tag": "N/A",
 		"interval": 5,
-		"on-click": "xfmpc",
+		"on-click": "ario",
 		"consume-icons": {
 			"on": " "
 		},
