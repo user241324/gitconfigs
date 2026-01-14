@@ -2,11 +2,12 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
+    margin: 0px;
+    border-radius: 4px;
 }
 
 window#waybar {
     background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -57,19 +58,33 @@ button:hover {
     padding: 0 5px;
     background-color: transparent;
     color: #ffffff;
+    border-radius: 4px;
+}
+
+#workspaces button.active {
+	background-color: #89b4fa;
+	color: #ffffff; 
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: #89b4fa;
 }
 
 #workspaces button.focused {
     background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
+}
+
+#window {
+	background-color: #993399;
+	padding: 7px;
+}
+
+window#waybar.empty #window {
+	background-color: transparent;
 }
 
 #mode {
@@ -85,9 +100,10 @@ button:hover {
 #temperature,
 #backlight,
 #network,
+#custom-vpn
 #pulseaudio,
 #wireplumber,
-#custom-media,
+#custom-power,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -145,6 +161,10 @@ button:hover {
     animation-direction: alternate;
 }
 
+#custom-power {
+	background-color: #993399;
+}
+
 #power-profiles-daemon {
     padding-right: 15px;
 }
@@ -193,8 +213,14 @@ label:focus {
     background-color: #f53c3c;
 }
 
+#custom-vpn {
+	background-color: #993399;
+	padding: 7px;
+}
+
 #pulseaudio {
     background-color: #f1c40f;
+    padding: 7px;
     color: #000000;
 }
 
