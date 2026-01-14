@@ -85,7 +85,7 @@
 	"custom/vpn": {
 		"interval": 3,
 		"format": "{}",
-		"exec": "ip add show | grep -qF tailscale0 && echo 🔒Tailscale Up || echo 🔓 Tailscale Down",
+		"exec": "ip add show | grep -qF tailscale0 && echo Tailscale Up 🔒 || echo Tailscale Down 🔓",
 		"max-length": "100"
 	},
 	"cpu": {
