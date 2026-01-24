@@ -22,12 +22,14 @@
 		"clock",
 		"custom/power",
 	],
-	// Modules configuration
 	"hyprland/workspaces": {
 		"show-special": true,
 	},
 	"hyprland/window": {
 		"tooltip": false,
+	},
+	"tray": {
+		"spacing": 10,
 	},
 	"pulseaudio": {
 		"format": "{icon} {volume}% {format_source}",
@@ -96,9 +98,6 @@
 		"format": " {:%H:%M}",
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
 		"format-alt": " {:%Y-%m-%d}"
-	},
-	"tray": {
-		"spacing": 10,
 	},
 	"custom/power": {
 		"format" : "",
