@@ -14,6 +14,8 @@
 		"tray",
 		"pulseaudio",
 		"network",
+		"custom/proton",
+		"custom/tailscale",
 		"cpu",
 		"memory",
 		"temperature",
@@ -57,10 +59,16 @@
 		"format-disconnected": " (Disconnected)",
 		"format-alt": "{ifname}: {ipaddr}/{cidr}"
 	},
-	"custom/vpn": {
+	"custom/proton": {
 		"interval": 3,
 		"format": "{}",
-		"exec": "ip add show | grep -qF tailscale0 && echo 🔒 VPN || echo 🔓 No VPN",
+		"exec": "ip add show | grep -qF proton0 && echo 🔒 VPN || echo 🔓 VPN",
+		"max-length": "100"
+	},
+	"custom/tailscale": {
+		"interval": 3,
+		"format": "{}",
+		"exec": "ip add show | grep -qF tailscale0 && echo 🔒 Tailscale || echo 🔓 Tailscale",
 		"max-length": "100"
 	},
 	"cpu": {
@@ -100,7 +108,7 @@
 		"format-alt": " {:%Y-%m-%d}"
 	},
 	"custom/power": {
-		"format" : "  ",
+		"format" : " ",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
