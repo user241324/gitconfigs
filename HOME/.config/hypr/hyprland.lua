@@ -17,9 +17,20 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
     output   = "",
-    mode     = "preferred",
+    mode     = "2560x1440@180",
     position = "auto",
-    scale    = "auto",
+    scale    = "1",
+    vrr      = "2",
+    --HDR Settings
+    bitdepth = 10,
+    cm = "hdr",
+    sdrbrightness = 1.2,
+    sdrsaturation = 1,
+    sdr_min_luminance = 0.005,
+    sdr_max_luminance = 300,
+    min_luminance = 0.005,
+    max_luminance = 1000,
+    max_avg_luminance = 300,
 })
 
 
@@ -28,9 +39,10 @@ hl.monitor({
 ---------------------
 
 -- Set programs that you use
-local terminal    = "kitty"
-local fileManager = "dolphin"
-local menu        = "hyprlauncher"
+local terminal    = "alacritty"
+local fileManager = "thunar"
+local menu        = "wofi --show drun"
+local browser    = "firefox"
 
 
 -------------------
@@ -42,12 +54,10 @@ local menu        = "hyprlauncher"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 --
--- hl.on("hyprland.start", function () 
---   hl.exec_cmd(terminal)
---   hl.exec_cmd("nm-applet")
---   hl.exec_cmd("waybar & hyprpaper & firefox")
--- end)
-
+hl.on("hyprland.start", function ()
+   hl.exec_cmd("waybar & hyprpaper")
+   hl.exec_cmd("systemctl --user start hyprpolkitagent")
+end)
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -55,9 +65,20 @@ local menu        = "hyprlauncher"
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
+-- Cursors
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "breeze_cursors")
 
+-- GTK
+hl.env("GDK_BACKEND", "wayland", "x11", *"
+hl.env("GTK_THEME", "Breeze-Dark"
+
+--QT
+hl.env("QT_QPA_PLATFORM", "wayland;xcb"
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct"
+hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1"
+hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1"
 
 -----------------------
 ----- PERMISSIONS -----
@@ -205,8 +226,8 @@ hl.config({
 
 hl.config({
     misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        force_default_wallpaper = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
+        disable_hyprland_logo   = true, -- If true disables the random hyprland logo / anime girl background. :(
     },
 })
 
@@ -222,13 +243,14 @@ hl.config({
         kb_model   = "",
         kb_options = "",
         kb_rules   = "",
+        numlock_by_default = true,
 
         follow_mouse = 1,
 
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
         touchpad = {
-            natural_scroll = false,
+            natural_scroll = true,
         },
     },
 })
@@ -259,8 +281,10 @@ local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(browser))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
