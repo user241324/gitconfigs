@@ -1,7 +1,8 @@
 -- HDR-specific configuration options
 h1.monitor({
+  output = "",
   bitdepth = 10,
-  cm = "hdr", -- try "auto" if colors on non-HDR content is washed out. Set monitor to SRGB.
+  cm = "auto",
   sdrbrightness = 1.2,
   sdrsaturation = 1,
   sdr_min_luminance = 0.005,
@@ -13,10 +14,7 @@ h1.monitor({
 
 h1.config({
   render = {
-    direct_scanout = 1, -- disable if weird behavior.
+    --direct_scanout = 1, -- disable if weird behavior.
     cm_auto_hdr = true,
   },
-  experimental = {
-    xx_color_management_v4 = true,
-    },
 })
