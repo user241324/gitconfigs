@@ -11,10 +11,10 @@
 ------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
--- require("monitor/default")
--- require("monitor/1920x1080@60")
-require("monitor/2560x1440@180")
-require("monitor/hdr")
+require("monitor/default")
+--require("monitor/1920x1080@60")
+--require("monitor/2560x1440@180")
+--require("monitor/hdr")
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -51,7 +51,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("XCURSOR_THEME", "breeze_cursors")
 
 -- GTK
-hl.env("GDK_BACKEND", "wayland", "x11", "*")
+hl.env("GDK_BACKEND", "wayland,x11,*")
 hl.env("GTK_THEME", "Breeze-Dark")
 
 -- QT
