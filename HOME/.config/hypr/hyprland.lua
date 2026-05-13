@@ -1,10 +1,7 @@
--- Refer to the wiki for more information.
--- https://wiki.hypr.land/Configuring/Start/
-
--- You can (and should!!) split this configuration into multiple files
--- Create your files separately and then require them like this:
--- require("myColors")
-
+-------------------------
+---- HYPRLAND CONFIG ----
+-------------------------
+-- See https://wiki.hypr.land/Configuring/Start/
 
 ------------------
 ---- MONITORS ----
@@ -16,16 +13,11 @@ require("monitor/default")
 --require("monitor/2560x1440@180")
 --require("monitor/hdr")
 
----------------------
----- MY PROGRAMS ----
----------------------
+-------------------
+---- VARIABLES ----
+-------------------
 
--- Set programs that you use
-local terminal = "alacritty"
-local fileManager = "thunar"
-local menu = "wofi --show drun"
-local browser = "firefox"
-
+require("variables")
 
 -------------------
 ---- AUTOSTART ----
@@ -38,30 +30,6 @@ hl.on("hyprland.start", function ()
    hl.exec_cmd("waybar & hyprpaper")
    hl.exec_cmd("systemctl --user start hyprpolkitagent")
 end)
-
--------------------------------
----- ENVIRONMENT VARIABLES ----
--------------------------------
-
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-
--- Cursors
-hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "breeze_cursors")
-
--- GTK
-hl.env("GDK_BACKEND", "wayland,x11,*")
-hl.env("GTK_THEME", "Breeze-Dark")
-
--- QT
-hl.env("QT_QPA_PLATFORM", "wayland;xcb")
-hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
-hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
-hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
-
--- Hyprshot
-hl.env("HYPRSHOT_DIR", "Screenshots")
 
 -----------------------
 ----- PERMISSIONS -----
