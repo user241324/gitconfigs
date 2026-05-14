@@ -251,14 +251,14 @@ hl.device({
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close()) -- Close focused window.
-
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")) -- Exit Hyprland.
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(menu))
-hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock")) -- Lock the screen
+hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m region")) -- Screenshot
+hl.bind(mainMod .. " + W", hl.dsp.window.fullscreen("maximized", "toggle")) -- Fullscreen toggle.
 
 hl.bind(mainMod .. " + SHIFT + SPACE", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
